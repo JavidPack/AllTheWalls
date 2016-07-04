@@ -1,0 +1,5 @@
+﻿This mod provides new items so that every single vanilla wall is now obtainable and placeable.
+
+Walls that previously would be destroyed upon hammering now drop their respective walls.
+
+In addition, safe walls can now be converted to unsafe variants through crafting. 
