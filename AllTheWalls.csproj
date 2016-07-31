@@ -58,8 +58,8 @@
       <HintPath>..\..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Xact\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Xact.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="tModLoader v0.8.3" Condition="!$(DefineConstants.Contains('DEBUG'))">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\terraria\tModLoader v0.8.3.exe</HintPath>
+    <Reference Include="tModLoader v0.8.3.1" Condition="!$(DefineConstants.Contains('DEBUG'))">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Terraria\tModLoader v0.8.3.1.exe</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -70,7 +70,7 @@
     <Folder Include="lib\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\VideoGameHacking\Terraria\tModLoader\src\tModLoader\Terraria.csproj" Condition="$(DefineConstants.Contains('DEBUG'))">
+    <ProjectReference Include="..\..\..\Modding\tModLoader\src\tModLoader\Terraria.csproj" Condition="$(DefineConstants.Contains('DEBUG'))">
       <Project>{3996d5fa-6e59-4fe4-9f2b-40eeef9645d5}</Project>
       <Name>Terraria</Name>
     </ProjectReference>
