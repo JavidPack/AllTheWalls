@@ -114,15 +114,19 @@ namespace AllTheWalls
 			new NewWall(WallID.CorruptGrassUnsafe,"CorruptGrassUnsafe", "Corrupt Grass Wall (Unsafe)", "Corrupt_Grass_Wall"),
 			new NewWall(WallID.CrimsonGrassUnsafe,"CrimsonGrassUnsafe", "Crimson Grass Wall (Unsafe)", "Crimson_Grass_Wall"),
 			new NewWall(WallID.HallowedGrassUnsafe,"HallowedGrassUnsafe", "Hallowed Grass Wall (Unsafe)", "Hallowed_Grass_Wall"),
+
+			new NewWall(WallID.MarbleUnsafe,"MarbleUnsafe", "Marble Wall (Unsafe)", "Marble_Wall"),
+			new NewWall(WallID.GraniteUnsafe,"GraniteUnsafe", "Granite Wall (Unsafe)", "Granite_Wall"),
+
 			//new NewWall(WallID., ""),
 		};
 
 		NewWall[] convertOnlyWalls = new NewWall[] {
 			new NewWall(WallID.HiveUnsafe,"HiveUnsafe", "Hive Wall (Unsafe)", "Hive_Wall"),
-			new NewWall(WallID.MarbleUnsafe,"MarbleUnsafe", "Hive Wall (Unsafe)", "Marble_Wall"),
-			new NewWall(WallID.GraniteUnsafe,"GraniteUnsafe", "Hive Wall (Unsafe)", "Granite_Wall"),
-			new NewWall(WallID.GrassUnsafe,"GrassUnsafe", "Hive Wall (Unsafe)", "Grass_Wall"),
-			new NewWall(WallID.FlowerUnsafe,"FlowerUnsafe", "Hive Wall (Unsafe)", "Flower_Wall"),
+	//		new NewWall(WallID.MarbleUnsafe,"MarbleUnsafe", "Marble Wall (Unsafe)", "Marble_Wall"),
+	//		new NewWall(WallID.GraniteUnsafe,"GraniteUnsafe", "Granite Wall (Unsafe)", "Granite_Wall"),
+			new NewWall(WallID.GrassUnsafe,"GrassUnsafe", "Grass Wall (Unsafe)", "Grass_Wall"),
+			new NewWall(WallID.FlowerUnsafe,"FlowerUnsafe", "Flower Wall (Unsafe)", "Flower_Wall"),
 			new NewWall(WallID.LihzahrdBrickUnsafe,"LihzahrdBrickUnsafe", "Lihzahrd Brick Wall (Unsafe)", "Lihzahrd_Brick_Wall"),
 
 			new NewWall(WallID.BlueDungeonUnsafe,"BlueDungeonUnsafe", "Blue Dungeon Brick Wall (Unsafe)", "Blue_Brick_Wall"),

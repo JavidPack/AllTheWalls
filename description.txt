@@ -3,3 +3,5 @@
 Walls that previously would be destroyed upon hammering now drop their respective walls.
 
 In addition, safe walls can now be converted to unsafe variants through crafting. 
+
+Update: Spelling fixes and Granite and Marble are now harvestable. 
