@@ -208,9 +208,7 @@ namespace AllTheWalls
 		};
 
 		internal IDictionary<int, int> mapOriginalWallToItemID;
-		internal IDictionary<int, int> mapItemIDToPlaceWall;
 		internal IDictionary<int, int> mapPlaceWallToItemID;
-		internal IDictionary<int, string> mapItemIDToDisplayName;
 
 		public AllTheWallsMod()
 		{
@@ -225,31 +223,23 @@ namespace AllTheWalls
 		public override void Load()
 		{
 			mapOriginalWallToItemID = new Dictionary<int, int>();
-			mapItemIDToPlaceWall = new Dictionary<int, int>();
 			mapPlaceWallToItemID = new Dictionary<int, int>();
-			mapItemIDToDisplayName = new Dictionary<int, string>();
 
+			// These walls don't drop anything in Vanilla, they should now drop an item that places the unsafe. 
 			foreach (var newWall in harvestWalls)
 			{
-				AllTheWallsItems item = new AllTheWallsItems(/*newWall.displayName, newWall.wallID*/);
+				AllTheWallsItems item = new  AllTheWallsItems(newWall.wallID, newWall.displayName);
 				AddItem(newWall.itemName, item, "AllTheWalls/ItemImages/" + newWall.textureName);
 				mapOriginalWallToItemID.Add(newWall.wallID, item.item.type);
-				mapItemIDToPlaceWall.Add(item.item.type, newWall.wallID);
 				mapPlaceWallToItemID.Add(newWall.wallID, item.item.type);
-				mapItemIDToDisplayName.Add(item.item.type, newWall.displayName);
-				//ErrorLogger.Log("Wall, type: " + newWall.wallID + " " + item.item.type);
 			}
 
-			// these walls should harvest the safe, but a recipe will allow for unsafe: hive, etc
+			// These walls should harvest the safe in Vanilla, but a recipe will allow for obtaining unsafe: hive, dungeon, etc
 			foreach (var newWall in convertOnlyWalls)
 			{
-				AllTheWallsItems item = new AllTheWallsItems();
+				AllTheWallsItems item = new AllTheWallsItems(newWall.wallID, newWall.displayName);
 				AddItem(newWall.itemName, item, "AllTheWalls/ItemImages/" + newWall.textureName);
 
-				mapItemIDToPlaceWall.Add(item.item.type, newWall.wallID);
-				mapItemIDToDisplayName.Add(item.item.type, newWall.displayName);
-
-				//mapOriginalWallToItemID.Add(newWall.wallID, item.item.type);
 				mapPlaceWallToItemID.Add(newWall.wallID, item.item.type);
 			}
 		}
