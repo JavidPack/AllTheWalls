@@ -214,6 +214,7 @@ namespace AllTheWalls
 		{
 			Properties = new ModProperties()
 			{
+				// this automatically gets false for the autoload values
 			};
 		}
 
@@ -228,8 +229,8 @@ namespace AllTheWalls
 			// These walls don't drop anything in Vanilla, they should now drop an item that places the unsafe. 
 			foreach (var newWall in harvestWalls)
 			{
-				AllTheWallsItems item = new  AllTheWallsItems(newWall.wallID, newWall.displayName);
-				AddItem(newWall.itemName, item, "AllTheWalls/ItemImages/" + newWall.textureName);
+				AllTheWallsItems item = new  AllTheWallsItems(newWall.wallID, newWall.displayName, "AllTheWalls/ItemImages/" + newWall.textureName);
+				AddItem(newWall.itemName, item);
 				mapOriginalWallToItemID.Add(newWall.wallID, item.item.type);
 				mapPlaceWallToItemID.Add(newWall.wallID, item.item.type);
 			}
@@ -237,8 +238,8 @@ namespace AllTheWalls
 			// These walls should harvest the safe in Vanilla, but a recipe will allow for obtaining unsafe: hive, dungeon, etc
 			foreach (var newWall in convertOnlyWalls)
 			{
-				AllTheWallsItems item = new AllTheWallsItems(newWall.wallID, newWall.displayName);
-				AddItem(newWall.itemName, item, "AllTheWalls/ItemImages/" + newWall.textureName);
+				AllTheWallsItems item = new AllTheWallsItems(newWall.wallID, newWall.displayName, "AllTheWalls/ItemImages/" + newWall.textureName);
+				AddItem(newWall.itemName, item);
 
 				mapPlaceWallToItemID.Add(newWall.wallID, item.item.type);
 			}

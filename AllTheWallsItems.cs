@@ -5,23 +5,29 @@ namespace AllTheWalls
 {
 	class AllTheWallsItems : ModItem
 	{
-		// We need this so the call to Activator.CreateInstance in ModLoader.AutoloadItem won't complain
-		public AllTheWallsItems() { }
-
-		private string displayName;
 		private int wallID;
+		private string displayName;
+		private string texturePath;
 
-		public AllTheWallsItems(int wallID, string displayName)
+		public override bool CloneNewInstances => true;
+		public override string Texture => texturePath;
+
+		public AllTheWallsItems(int wallID, string displayName, string texturePath)
 		{
 			this.wallID = wallID;
 			this.displayName = displayName;
+			this.texturePath = texturePath;
+		}
+
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault(displayName);
 		}
 
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.StoneWall);
 			item.createWall = wallID;
-			item.name = displayName;
 		}
 	}
 }
