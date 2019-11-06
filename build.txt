@@ -1,6 +1,5 @@
 ﻿author = jopojelly
-version = 1.1.2
+version = 1.2
 displayName = All the Walls
 homepage = http://forums.terraria.org/index.php?threads/all-the-walls.44509/
 buildIgnore = .vs\*, Properties\*, *.csproj, *.user, obj\*, bin\*, *.config, ignore\*, .git\*
-languageVersion = 6
