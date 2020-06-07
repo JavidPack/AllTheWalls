@@ -1,4 +1,5 @@
-﻿using Terraria.ModLoader;
+﻿using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AllTheWalls
 {
@@ -15,6 +16,10 @@ namespace AllTheWalls
 			{
 				dropType = ((AllTheWallsMod)mod).mapOriginalWallToItemID[type];
 			}
+
+			if (type == WallID.Grass)
+				dropType = ItemID.GrassWall;
+
 			return true;
 		}
 	}
