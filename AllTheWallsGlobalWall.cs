@@ -16,10 +16,6 @@ namespace AllTheWalls
 			{
 				dropType = ((AllTheWallsMod)mod).mapOriginalWallToItemID[type];
 			}
-
-			if (type == WallID.Grass)
-				dropType = ItemID.GrassWall;
-
 			return true;
 		}
 	}
