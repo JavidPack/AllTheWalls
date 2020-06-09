@@ -1,4 +1,5 @@
-﻿using Terraria.ModLoader;
+﻿using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AllTheWalls
 {
