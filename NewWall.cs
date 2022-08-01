@@ -1,4 +1,6 @@
-﻿namespace AllTheWalls
+﻿using Terraria.ID;
+
+namespace AllTheWalls
 {
 	class NewWall
 	{
@@ -20,6 +22,13 @@
 			this.wallID = wallID;
 			this.itemName = itemName;
 			this.displayName = displayName;
+			this.textureName = $"Terraria/Images/Item_{textureItemID}";
+		}
+
+		public NewWall(ushort wallID, string itemName, int textureItemID) {
+			this.wallID = wallID;
+			this.itemName = itemName;
+			this.displayName = $"{{$ItemName.{ItemID.Search.GetName(textureItemID)}}} {{$Mods.AllTheWalls.UnsafeInParenthesis}}";
 			this.textureName = $"Terraria/Images/Item_{textureItemID}";
 		}
 	}
