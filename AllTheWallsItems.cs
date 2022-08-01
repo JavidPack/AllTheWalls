@@ -9,7 +9,7 @@ namespace AllTheWalls
 		private string displayName;
 		private string texturePath;
 
-		public override bool CloneNewInstances => true;
+		protected override bool CloneNewInstances => true;
 		public override string Texture => texturePath;
 
 		public AllTheWallsItems(int wallID, string displayName, string texturePath)
@@ -26,8 +26,8 @@ namespace AllTheWalls
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.StoneWall);
-			item.createWall = wallID;
+			Item.CloneDefaults(ItemID.StoneWall);
+			Item.createWall = wallID;
 		}
 	}
 }

@@ -214,7 +214,7 @@ namespace AllTheWalls
 
 		public AllTheWallsMod()
 		{
-			Properties = new ModProperties()
+			Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */ = new ModProperties()
 			{
 				// this automatically gets false for the autoload values
 			};
@@ -233,8 +233,8 @@ namespace AllTheWalls
 			{
 				AllTheWallsItems item = new  AllTheWallsItems(newWall.wallID, newWall.displayName, "AllTheWalls/ItemImages/" + newWall.textureName);
 				AddItem(newWall.itemName, item);
-				mapOriginalWallToItemID.Add(newWall.wallID, item.item.type);
-				mapPlaceWallToItemID.Add(newWall.wallID, item.item.type);
+				mapOriginalWallToItemID.Add(newWall.wallID, item.Item.type);
+				mapPlaceWallToItemID.Add(newWall.wallID, item.Item.type);
 			}
 
 			// These walls should harvest the safe in Vanilla, but a recipe will allow for obtaining unsafe: hive, dungeon, etc
@@ -243,24 +243,22 @@ namespace AllTheWalls
 				AllTheWallsItems item = new AllTheWallsItems(newWall.wallID, newWall.displayName, "AllTheWalls/ItemImages/" + newWall.textureName);
 				AddItem(newWall.itemName, item);
 
-				mapPlaceWallToItemID.Add(newWall.wallID, item.item.type);
+				mapPlaceWallToItemID.Add(newWall.wallID, item.Item.type);
 			}
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe;
+			Recipe recipe;
 			foreach (var item in convertToUnsafeWalls)
 			{
-				recipe = new ModRecipe(this);
+				recipe = Recipe.Create(mapPlaceWallToItemID[item.newWallID], 20);
 				recipe.AddIngredient(item.originalWallItemID, 20);
-				recipe.SetResult(mapPlaceWallToItemID[item.newWallID], 20);
-				recipe.AddRecipe();
+				recipe.Register();
 
-				recipe = new ModRecipe(this);
+				recipe = Recipe.Create(item.originalWallItemID, 20);
 				recipe.AddIngredient(mapPlaceWallToItemID[item.newWallID], 20);
-				recipe.SetResult(item.originalWallItemID, 20);
-				recipe.AddRecipe();
+				recipe.Register();
 			}
 		}
 
