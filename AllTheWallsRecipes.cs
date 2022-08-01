@@ -14,8 +14,16 @@ namespace AllTheWalls
 				recipe.AddIngredient(item.originalWallItemID, 20);
 				recipe.Register();
 
+				recipe = Recipe.Create(allTheWallsMod.mapPlaceWallToItemID[item.newWallID], 1);
+				recipe.AddIngredient(item.originalWallItemID, 1);
+				recipe.Register();
+
 				recipe = Recipe.Create(item.originalWallItemID, 20);
 				recipe.AddIngredient(allTheWallsMod.mapPlaceWallToItemID[item.newWallID], 20);
+				recipe.Register();
+
+				recipe = Recipe.Create(item.originalWallItemID, 1);
+				recipe.AddIngredient(allTheWallsMod.mapPlaceWallToItemID[item.newWallID], 1);
 				recipe.Register();
 			}
 		}
