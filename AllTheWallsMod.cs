@@ -12,8 +12,8 @@ namespace AllTheWalls
 			new NewWall(WallID.EbonstoneUnsafe, "EbonstoneUnsafe", "Ebonstone Wall (Unsafe)", "Ebonstone_Wall"),
 			new NewWall(WallID.HellstoneBrickUnsafe, "HellstoneBrickUnsafe", "Hellstone Brick Wall (Unsafe)", "Hellstone_Brick_Wall"),
 			new NewWall(WallID.MudUnsafe, "MudUnsafe", "Mud Wall (Unsafe)", "Mud_Wall"),
-			new NewWall(WallID.PearlstoneBrickUnsafe, "PearlstoneBrickUnsafe", "Pearlstone Wall (Unsafe)", "Pearlstone_Wall"),
-			new NewWall(WallID.SnowWallUnsafe, "SnowWallUnsafe", "Snow Wall (Unsafe)", "Snow_Wall"),
+			new NewWall(WallID.PearlstoneBrickUnsafe, "PearlstoneBrickUnsafe", "Pearlstone Wall (Unsafe)", $"Terraria/Images/Item_{ItemID.PearlstoneEcho}"),
+			new NewWall(WallID.SnowWallUnsafe, "SnowWallUnsafe", "Snow Wall (Unsafe)", ItemID.SnowWallEcho),
 			new NewWall(WallID.AmethystUnsafe, "AmethystUnsafe", "Amethyst Stone Wall (Unsafe)", "Amethyst_Wall"),
 			new NewWall(WallID.TopazUnsafe, "TopazUnsafe", "Topaz Stone Wall (Unsafe)", "Topaz_Wall"),
 			new NewWall(WallID.SapphireUnsafe, "SapphireUnsafe", "Sapphire Stone Wall (Unsafe)", "Sapphire_Wall"),
@@ -49,9 +49,9 @@ namespace AllTheWalls
 			new NewWall(WallID.CorruptionUnsafe3, "CorruptionUnsafe3", "Corrupt Pustule Wall (Unsafe)", "Corruption_Wall_3"),
 			new NewWall(WallID.CorruptionUnsafe4, "CorruptionUnsafe4", "Corrupt Tendril Wall (Unsafe)", "Corruption_Wall_4"),
 			new NewWall(WallID.CrimsonUnsafe1, "CrimsonUnsafe1", "Crimson Crust Wall (Unsafe)", "Crimson_Wall_1"),
-			new NewWall(WallID.CrimsonUnsafe2, "CrimsonUnsafe2", "Crimson Scab Wall (Unsafe)", "Crimson_Wall_1"),
-			new NewWall(WallID.CrimsonUnsafe3, "CrimsonUnsafe3", "Crimson Teeth Wall (Unsafe)", "Crimson_Wall_1"),
-			new NewWall(WallID.CrimsonUnsafe4, "CrimsonUnsafe4", "Crimson Blister Wall (Unsafe)", "Crimson_Wall_1"),
+			new NewWall(WallID.CrimsonUnsafe2, "CrimsonUnsafe2", "Crimson Scab Wall (Unsafe)", "Crimson_Wall_2"),
+			new NewWall(WallID.CrimsonUnsafe3, "CrimsonUnsafe3", "Crimson Teeth Wall (Unsafe)", "Crimson_Wall_3"),
+			new NewWall(WallID.CrimsonUnsafe4, "CrimsonUnsafe4", "Crimson Blister Wall (Unsafe)", "Crimson_Wall_4"),
 			new NewWall(WallID.DirtUnsafe1, "DirtUnsafe1", "Layered Dirt Wall (Unsafe)", "Dirt_Wall_1"),
 			new NewWall(WallID.DirtUnsafe2, "DirtUnsafe2", "Crumbling Dirt Wall (Unsafe)", "Dirt_Wall_2"),
 			new NewWall(WallID.DirtUnsafe3, "DirtUnsafe3", "Cracked Dirt Wall (Unsafe)", "Dirt_Wall_3"),
@@ -102,16 +102,16 @@ namespace AllTheWalls
 		// Recipes to convert harvested walls to all varieties that drop that wall item
 		internal ConvertWall[] convertToUnsafeWalls = new ConvertWall[] {
 			new ConvertWall(ItemID.DirtWall,    WallID.DirtUnsafe),
-			new ConvertWall(ItemID.DirtWall,    WallID.DirtUnsafe1),
-			new ConvertWall(ItemID.DirtWall,    WallID.DirtUnsafe2),
-			new ConvertWall(ItemID.DirtWall,    WallID.DirtUnsafe3),
-			new ConvertWall(ItemID.DirtWall,    WallID.DirtUnsafe4),
+			new ConvertWall(ItemID.Dirt1Echo,    WallID.DirtUnsafe1),
+			new ConvertWall(ItemID.Dirt2Echo,    WallID.DirtUnsafe2),
+			new ConvertWall(ItemID.Dirt3Echo,    WallID.DirtUnsafe3),
+			new ConvertWall(ItemID.Dirt4Echo,    WallID.DirtUnsafe4),
 			new ConvertWall(ItemID.GrassWall,   WallID.GrassUnsafe),
 			new ConvertWall(ItemID.JungleWall,  WallID.JungleUnsafe),
-			new ConvertWall(ItemID.JungleWall,  WallID.JungleUnsafe1),
-			new ConvertWall(ItemID.JungleWall,  WallID.JungleUnsafe2),
-			new ConvertWall(ItemID.JungleWall,  WallID.JungleUnsafe3),
-			new ConvertWall(ItemID.JungleWall,  WallID.JungleUnsafe4),
+			new ConvertWall(ItemID.Jungle1Echo,  WallID.JungleUnsafe1),
+			new ConvertWall(ItemID.Jungle2Echo,  WallID.JungleUnsafe2),
+			new ConvertWall(ItemID.Jungle3Echo,  WallID.JungleUnsafe3),
+			new ConvertWall(ItemID.Jungle4Echo,  WallID.JungleUnsafe4),
 			new ConvertWall(ItemID.FlowerWall,  WallID.FlowerUnsafe),
 			new ConvertWall(ItemID.MushroomWall, WallID.MushroomUnsafe),
 			new ConvertWall(ItemID.LihzahrdBrickWall, WallID.LihzahrdBrickUnsafe),
@@ -153,7 +153,7 @@ namespace AllTheWalls
 			// TODO: Some other mods add unsafe wall items, cluttering things. How should this be addressed? Have those mods detect this mod?
 			// These walls don't drop anything in Vanilla, they should now drop an item that places the unsafe. 
 			foreach (var newWall in harvestWalls) {
-				AllTheWallsItems item = new AllTheWallsItems(newWall.itemName, newWall.wallID, newWall.displayName, "AllTheWalls/ItemImages/" + newWall.textureName);
+				AllTheWallsItems item = new AllTheWallsItems(newWall.itemName, newWall.wallID, newWall.displayName, newWall.textureName);
 				AddContent(item);
 				mapOriginalWallToItemID.Add(newWall.wallID, item.Item.type);
 				mapPlaceWallToItemID.Add(newWall.wallID, item.Item.type);
@@ -161,7 +161,7 @@ namespace AllTheWalls
 
 			// These walls should harvest the safe in Vanilla, but a recipe will allow for obtaining unsafe: hive, dungeon, etc
 			foreach (var newWall in convertOnlyWalls) {
-				AllTheWallsItems item = new AllTheWallsItems(newWall.itemName, newWall.wallID, newWall.displayName, "AllTheWalls/ItemImages/" + newWall.textureName);
+				AllTheWallsItems item = new AllTheWallsItems(newWall.itemName, newWall.wallID, newWall.displayName, newWall.textureName);
 				AddContent(item);
 				mapPlaceWallToItemID.Add(newWall.wallID, item.Item.type);
 			}

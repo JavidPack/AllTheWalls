@@ -12,6 +12,15 @@
 			this.itemName = itemName;
 			this.displayName = displayName;
 			this.textureName = textureName;
+			if (!textureName.StartsWith("Terraria"))
+				this.textureName = "AllTheWalls/ItemImages/" + textureName;
+		}
+
+		public NewWall(ushort wallID, string itemName, string displayName, int textureItemID) {
+			this.wallID = wallID;
+			this.itemName = itemName;
+			this.displayName = displayName;
+			this.textureName = $"Terraria/Images/Item_{textureItemID}";
 		}
 	}
 }
