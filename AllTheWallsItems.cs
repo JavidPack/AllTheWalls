@@ -36,7 +36,7 @@ namespace AllTheWalls
 		}
 
 		public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale) {
-			spriteBatch.Draw(Mod.Assets.Request<Texture2D>("ItemImages/SkullOverlay").Value, position + scale * new Vector2(frame.Width - 14, frame.Height - 14), null, Color.White, 0f, origin, scale, SpriteEffects.None, 0);
+			spriteBatch.Draw(Mod.Assets.Request<Texture2D>("ItemImages/SkullOverlay").Value, position + scale * new Vector2(frame.Width - 7, frame.Height - 7), null, Color.White, 0f, origin, scale, SpriteEffects.None, 0);
 			base.PostDrawInInventory(spriteBatch, position, frame, drawColor, itemColor, origin, scale);
 		}
 	}
