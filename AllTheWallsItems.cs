@@ -25,6 +25,7 @@ namespace AllTheWalls
 
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault(displayName);
+			SacrificeTotal = 400;
 		}
 
 		public override void SetDefaults() {
