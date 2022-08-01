@@ -150,6 +150,7 @@ namespace AllTheWalls
 			mapOriginalWallToItemID = new Dictionary<int, int>();
 			mapPlaceWallToItemID = new Dictionary<int, int>();
 
+			// TODO: Some other mods add unsafe wall items, cluttering things. How should this be addressed? Have those mods detect this mod?
 			// These walls don't drop anything in Vanilla, they should now drop an item that places the unsafe. 
 			foreach (var newWall in harvestWalls) {
 				AllTheWallsItems item = new AllTheWallsItems(newWall.itemName, newWall.wallID, newWall.displayName, "AllTheWalls/ItemImages/" + newWall.textureName);
